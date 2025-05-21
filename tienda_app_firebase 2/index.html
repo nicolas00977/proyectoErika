@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Telefonía</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Tienda de Telefonía y Accesorios</h1>
+    <nav>
+      <button onclick="mostrarSeccion('clientes')">Clientes</button>
+      <button onclick="mostrarSeccion('creditos')">Créditos</button>
+      <button onclick="mostrarSeccion('separados')">Separados</button>
+      <button onclick="mostrarSeccion('mora')">Clientes en Mora</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Clientes -->
+    <section id="clientes" class="seccion">
+      <h2>Clientes</h2>
+      <form id="formCliente">
+        <input type="text" id="cedula" placeholder="Cédula" required>
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="text" id="apellido" placeholder="Apellido" required>
+        <input type="text" id="telefono" placeholder="Teléfono" required>
+        <input type="email" id="correo" placeholder="Correo" required>
+        <button type="submit">Registrar Cliente</button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Cédula</th><th>Nombre</th><th>Apellido</th><th>Teléfono</th><th>Correo</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaClientes"></tbody>
+      </table>
+    </section>
+
+    <!-- Créditos -->
+    <section id="creditos" class="seccion" style="display:none">
+      <h2>Créditos</h2>
+      <form id="formCredito">
+        <input type="text" id="numeroCredito" placeholder="Número de Crédito" required>
+        <input type="text" id="cedulaCredito" placeholder="Cédula del Cliente" required>
+        <input type="text" id="articuloCredito" placeholder="Nombre del Artículo" required>
+        <input type="number" id="valorCredito" placeholder="Valor del Artículo" required>
+        <input type="number" id="abonoCredito" placeholder="Abono" required>
+        <button type="submit">Registrar Crédito</button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Número</th><th>Cédula</th><th>Artículo</th><th>Valor</th><th>Abono</th><th>Saldo</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaCreditos"></tbody>
+      </table>
+    </section>
+
+    <!-- Separados -->
+    <section id="separados" class="seccion" style="display:none">
+      <h2>Separados</h2>
+      <form id="formSeparado">
+        <input type="text" id="numeroSeparado" placeholder="Número de Separado" required>
+        <input type="text" id="cedulaSeparado" placeholder="Cédula del Cliente" required>
+        <input type="text" id="articuloSeparado" placeholder="Nombre del Artículo" required>
+        <input type="number" id="valorSeparado" placeholder="Valor del Artículo" required>
+        <input type="number" id="abonoSeparado" placeholder="Abono" required>
+        <input type="date" id="fechaSeparado" required>
+        <input type="date" id="fechaVencimiento" required>
+        <button type="submit">Registrar Separado</button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Número</th><th>Cédula</th><th>Artículo</th><th>Valor</th><th>Abono</th><th>Saldo</th><th>Fecha Separado</th><th>Fecha Vencimiento</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaSeparados"></tbody>
+      </table>
+    </section>
+
+    <!-- Mora -->
+    <section id="mora" class="seccion" style="display:none">
+      <h2>Clientes en Mora</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Número</th><th>Cédula</th><th>Artículo</th><th>Saldo</th><th>Fecha Vencimiento</th>
+          </tr>
+        </thead>
+        <tbody id="tablaMora"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/db.js"></script>
+  <script src="js/models/cliente.js"></script>
+  <script src="js/models/credito.js"></script>
+  <script src="js/models/separado.js"></script>
+  <script src="js/controllers/clienteController.js"></script>
+  <script src="js/controllers/creditoController.js"></script>
+  <script src="js/controllers/separadoController.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

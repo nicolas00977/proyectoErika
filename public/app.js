@@ -8,10 +8,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       const crearBtn = document.getElementById('guardarDato');
       crearBtn.addEventListener('click', async () => {
         const docRef = await db.collection('usuarios').add({
+          cedula: 1004747489,
           nombre: 'Nicolas G',
           edad: 24,
           email: 'nico@example.com',
-          intereses: ['programación', 'fiesta', 'fotografía'],
+          telefono: 3026697563,
           creadoEn: firebase.firestore.FieldValue.serverTimestamp()
         });
   
